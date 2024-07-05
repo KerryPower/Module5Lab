@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Example</title>
+</head>
+
+<body>
+    <div>
+        <label for="num1">Num1</label>
+        <input id="num1" type="number">
+    </div>
+    <div>
+        <label for="num2">Num2</label>
+        <input id="num2" type="number">
+    </div>
+    <div>
+        <button id="addButton">Add</button>
+        <button id="subtractButton">Subtract</button>
+        <button id="divideButton">Divde</button>
+        <button id="multiplyButton">Multiply</button>
+    </div>
+    <div>Result
+        <span id="result"></span>
+    </div>
+</body>
+<script>
+    const num1 = document.getElementById("num1");
+    const num2 = document.getElementById("num2");
+    
+    function addNumbers() {
+    fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("result").innerHTML =
+                data.result;
+        })
+    }
+    function subtractNumbers() {
+    fetch(`/calculator/subtract?num1=${num1}&num2=${num2}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("result").innerHTML =
+                data.result;
+        })
+    }
+    function divideNumbers() {
+    fetch(`/calculator/divide?num1=${num1}&num2=${num2}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("result").innerHTML =
+                data.result;
+        })
+    }
+   
+    function multiplyNumbers() {
+    fetch(`/calculator/multiply?num1=${num1}&num2=${num2}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("result").innerHTML =
+                data.result;
+        })
+    }
+    
+  
+    document.getElementById("addButton").addEventListener("click", addNumbers);
+document.getElementById("subtractButton").addEventListener("click", subtractNumbers);
+document.getElementById("divideButton").addEventListener("click", divideNumbers);
+document.getElementById("multiplyButton").addEventListener("click", multiplyNumbers);
+</script>
+
+</html>
