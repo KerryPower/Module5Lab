@@ -29,46 +29,46 @@
 <script>
     const num1 = document.getElementById("num1");
     const num2 = document.getElementById("num2");
-    
+
     function addNumbers() {
-    fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("result").innerHTML =
-                data.result;
-        })
+        fetch(`/calculator/add?num1=${num1.value}&num2=${num2.value}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerHTML =
+                    data.result;
+            })
     }
     function subtractNumbers() {
-    fetch(`/calculator/subtract?num1=${num1}&num2=${num2}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("result").innerHTML =
-                data.result;
-        })
+        fetch(`/calculator/subtract?num1=${num1.value}&num2=${num2.value}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerHTML =
+                    data.result;
+            })
     }
     function divideNumbers() {
-    fetch(`/calculator/divide?num1=${num1}&num2=${num2}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("result").innerHTML =
-                data.result;
-        })
+        fetch(`/calculator/divide?num1=${num1.value}&num2=${num2.value}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerHTML =
+                    data.result;
+            })
     }
-   
+
     function multiplyNumbers() {
-    fetch(`/calculator/multiply?num1=${num1}&num2=${num2}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("result").innerHTML =
-                data.result;
-        })
+        fetch(`/calculator/multiply?num1=${num1.value}&num2=${num2.value}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerHTML =
+                    data.result;
+            })
     }
-    
-  
+
+
     document.getElementById("addButton").addEventListener("click", addNumbers);
-document.getElementById("subtractButton").addEventListener("click", subtractNumbers);
-document.getElementById("divideButton").addEventListener("click", divideNumbers);
-document.getElementById("multiplyButton").addEventListener("click", multiplyNumbers);
+    document.getElementById("subtractButton").addEventListener("click", subtractNumbers);
+    document.getElementById("divideButton").addEventListener("click", divideNumbers);
+    document.getElementById("multiplyButton").addEventListener("click", multiplyNumbers);
 </script>
 
 </html>
